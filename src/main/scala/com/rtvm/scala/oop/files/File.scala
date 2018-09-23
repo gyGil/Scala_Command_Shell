@@ -20,6 +20,12 @@ class File(override  val parentPath: String, override val name: String, conents:
   def asFile: File = this
   def asDirectory: Directory =
     throw new FilesystemException("A file cannot be converted to a directory!")
+
+  def setContents(newContents: String): File =
+    new File(parentPath, name, newContents)
+
+  def appendContents(newContents: String): File =
+    setContents(conents + "/n" + newContents)
 }
 
 /**

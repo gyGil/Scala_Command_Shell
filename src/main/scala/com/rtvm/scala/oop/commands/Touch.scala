@@ -4,7 +4,7 @@ import com.rtvm.scala.oop.filesystem.State
 
 /**
   * touch command
-  * @param name Directory or File name to create
+  * @param name File name to create
   */
 class Touch(name: String) extends CreateEntry(name) {
 
