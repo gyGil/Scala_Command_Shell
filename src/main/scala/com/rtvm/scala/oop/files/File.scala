@@ -9,13 +9,13 @@ import com.rtvm.scala.oop.filesystem.FilesystemException
   * @param name File name
   * @param conents Text in file
   */
-class File(override  val parentPath: String, override val name: String, conents: String)
+class File(override  val parentPath: String, override val name: String, val contents: String)
   extends DirEntry (parentPath, name){
 
   def getType: String = "File"
 
-  def isFile: Boolean = false
-  def isDirectory: Boolean = true
+  def isFile: Boolean = true
+  def isDirectory: Boolean = false
 
   def asFile: File = this
   def asDirectory: Directory =
@@ -25,7 +25,7 @@ class File(override  val parentPath: String, override val name: String, conents:
     new File(parentPath, name, newContents)
 
   def appendContents(newContents: String): File =
-    setContents(conents + "/n" + newContents)
+    setContents(contents + "/n" + newContents)
 }
 
 /**

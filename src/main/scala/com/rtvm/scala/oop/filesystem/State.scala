@@ -14,9 +14,10 @@ class State(val root: Directory, val wd: Directory, val output: String) {
   /**
     * Print output to shell
     */
-  def show: Unit = {
+  def show: State = {
     println(output)
     print(State.SHELL_TOKEN)
+    this
   }
 
   /**
